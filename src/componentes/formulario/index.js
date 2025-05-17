@@ -1,14 +1,28 @@
 import CampoTexto from "../CampoTexto";
+import ListaSuspensa from "../ListaSuspensa";
 import "./Formulario.css";
 
 const Formulario = () => {
+  const times = [
+    "Pedagógico",
+    "SISAE",
+    "TI",
+    "Extensão",
+    "Secretaria",
+    "AEE",
+    "Infraestrutura",
+    "Direções",
+    "Outros",
+  ];
+
   return (
     <section className="formulario">
       <form>
-        <h2>Preencha os dados para criar o card do jogador.</h2>
+        <h2>Preencha os dados para criar o card do Profissional.</h2>
         <CampoTexto label="Nome" placeholder="Digite seu nome" />
         <CampoTexto label="Cargo" placeholder="Digite seu cargo" />
         <CampoTexto label="Imagem" placeholder="Digite o endereço da imagem" />
+        <ListaSuspensa label="Time" itens={times} />
       </form>
     </section>
   );
