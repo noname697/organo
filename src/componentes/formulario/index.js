@@ -4,7 +4,7 @@ import CampoTexto from "../CampoTexto";
 import ListaSuspensa from "../ListaSuspensa";
 import "./Formulario.css";
 
-const Formulario = () => {
+const Formulario = (props) => {
   const funcoes = ["Duelista", "Iniciador", "Controlador", "Suporte"];
 
   const [nome, setNome] = useState("");
@@ -14,7 +14,12 @@ const Formulario = () => {
 
   const aoSalvar = (e) => {
     e.preventDefault();
-    console.log(nome, genero, imagem, funcao);
+    props.aoAgenteCadastrado({
+      nome: nome,
+      genero: genero,
+      imagem: imagem,
+      funcao: funcao,
+    });
   };
 
   return (
