@@ -4,6 +4,29 @@ import Formulario from "./componentes/Formulario";
 import Funcao from "./componentes/Funcao";
 
 function App() {
+  const funcoes = [
+    {
+      nome: "Duelista",
+      corPrimaria: "#F54D41",
+      corSecundaria: "#F7948D",
+    },
+    {
+      nome: "Iniciador",
+      corPrimaria: "#F2D43D",
+      corSecundaria: "#F2EEB6",
+    },
+    {
+      nome: "Controlador",
+      corPrimaria: "#3D9DD9",
+      corSecundaria: "#BBE8F2",
+    },
+    {
+      nome: "Sentinela",
+      corPrimaria: "#6CA907",
+      corSecundaria: "#B6F25C",
+    },
+  ];
+
   const [agentes, setAgentes] = useState([]);
 
   const aoNovoAgenteAdicionado = (agente) => {
@@ -17,10 +40,14 @@ function App() {
       <Formulario
         aoAgenteCadastrado={(agente) => aoNovoAgenteAdicionado(agente)}
       />
-      <Funcao nome="Duelistas"/>
-      <Funcao nome="Iniciadores"/>
-      <Funcao nome="Controladores"/>
-      <Funcao nome="Sentinelas"/>
+      {funcoes.map((funcao) => (
+        <Funcao
+          key={funcao.nome}
+          nome={funcao.nome}
+          corPrimaria={funcao.corPrimaria}
+          corSecundaria={funcao.corSecundaria}
+        />
+      ))}
     </div>
   );
 }
