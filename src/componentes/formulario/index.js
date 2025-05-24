@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Botao from "../Botao";
 import CampoTexto from "../CampoTexto";
 import ListaSuspensa from "../ListaSuspensa";
@@ -6,9 +7,14 @@ import "./Formulario.css";
 const Formulario = () => {
   const funcoes = ["Duelista", "Iniciador", "Controlador", "Suporte"];
 
+  const [nome, setNome] = useState("");
+  const [genero, setGenero] = useState("");
+  const [imagem, setImagem] = useState("");
+  const [funcao, setFuncao] = useState("");
+
   const aoSalvar = (e) => {
     e.preventDefault();
-    console.log("Form foi submetido");
+    console.log(nome, genero, imagem, funcao);
   };
 
   return (
@@ -19,18 +25,30 @@ const Formulario = () => {
           obrigatorio={true}
           label="Nome"
           placeholder="Digite seu nome"
+          valor={nome}
+          aoAlterado={(valor) => setNome(valor)}
         />
         <CampoTexto
           obrigatorio={true}
           label="Genêro"
           placeholder="Digite seu genêro"
+          valor={genero}
+          aoAlterado={(valor) => setGenero(valor)}
         />
         <CampoTexto
           obrigatorio={false}
           label="Imagem"
           placeholder="Digite o endereço da imagem"
+          valor={imagem}
+          aoAlterado={(valor) => setImagem(valor)}
         />
-        <ListaSuspensa obrigatorio={true} label="Função" itens={funcoes} />
+        <ListaSuspensa
+          obrigatorio={true}
+          label="Função"
+          itens={funcoes}
+          valor={funcao}
+          aoAlterado={(valor) => setFuncao(valor)}
+        />
         <Botao>Criar Card</Botao>
       </form>
     </section>
