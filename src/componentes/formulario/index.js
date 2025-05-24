@@ -5,7 +5,7 @@ import ListaSuspensa from "../ListaSuspensa";
 import "./Formulario.css";
 
 const Formulario = (props) => {
-  const funcoes = ["Duelista", "Iniciador", "Controlador", "Suporte"];
+  const funcoes = ["Duelista", "Iniciador", "Controlador", "Sentinela"];
 
   const [nome, setNome] = useState("");
   const [genero, setGenero] = useState("");
