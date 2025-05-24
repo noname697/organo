@@ -5,8 +5,6 @@ import ListaSuspensa from "../ListaSuspensa";
 import "./Formulario.css";
 
 const Formulario = (props) => {
-  const funcoes = ["Duelista", "Iniciador", "Controlador", "Sentinela"];
-
   const [nome, setNome] = useState("");
   const [genero, setGenero] = useState("");
   const [imagem, setImagem] = useState("");
@@ -50,7 +48,7 @@ const Formulario = (props) => {
         <ListaSuspensa
           obrigatorio={true}
           label="Função"
-          itens={funcoes}
+          itens={props.funcoes}
           valor={funcao}
           aoAlterado={(valor) => setFuncao(valor)}
         />

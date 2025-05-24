@@ -38,6 +38,7 @@ function App() {
     <div className="App">
       <Banner />
       <Formulario
+        funcoes={funcoes.map((funcao) => funcao.nome)}
         aoAgenteCadastrado={(agente) => aoNovoAgenteAdicionado(agente)}
       />
       {funcoes.map((funcao) => (
