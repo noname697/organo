@@ -2,6 +2,7 @@ import { useState } from "react";
 import Banner from "./componentes/Banner";
 import Formulario from "./componentes/Formulario";
 import Funcao from "./componentes/Funcao";
+import Footer from "./componentes/Footer";
 
 function App() {
   const funcoes = [
@@ -50,6 +51,7 @@ function App() {
           agentes={agentes.filter(colaborador => colaborador.funcao === funcao.nome)}
         />
       ))}
+      <Footer />
     </div>
   );
 }

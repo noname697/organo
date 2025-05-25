@@ -1,0 +1,23 @@
+.rodape{
+    background-color: #6278F7;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 213px;
+}
+
+.rodape ul{
+    display: flex;
+    gap: 35px;
+}
+
+.rodape li {
+    list-style-type: none;
+    max-width: 35px;
+}
+
+.rodape h3 {
+font-size: 24px;
+color: #FFF;
+font-weight: 400;
+}
