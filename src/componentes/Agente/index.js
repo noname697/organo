@@ -1,9 +1,9 @@
 import "./Agente.css"
 
-const Agente = ({nome, imagem, funcao}) => {
+const Agente = ({nome, imagem, funcao, corDeFundo}) => {
     return (
         <div className="agente">
-            <div className="cabecalho">
+            <div className="cabecalho" style={{backgroundColor: corDeFundo}}>
                 <img src={imagem} alt="Arthur Manenti"/>
             </div>
             <div className="rodape">

@@ -11,6 +11,7 @@ const Funcao = (props) => {
       <div className="agentes">
         {props.agentes.map((agente) => (
           <Agente
+          corDeFundo={props.corPrimaria}
             key={agente.nome}
             nome={agente.nome}
             funcao={agente.funcao}
