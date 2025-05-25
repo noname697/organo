@@ -1,14 +1,14 @@
 import "./Agente.css"
 
-const Agente = () => {
+const Agente = ({nome, imagem, funcao}) => {
     return (
         <div className="agente">
             <div className="cabecalho">
-                <img src="https://github.com/noname697.png" alt="Arthur Manenti"/>
+                <img src={imagem} alt="Arthur Manenti"/>
             </div>
             <div className="rodape">
-                <h4>Arthur</h4>
-                <h5>Duelista</h5>
+                <h4>{nome}</h4>
+                <h5>{funcao}</h5>
             </div>
         </div>
     )

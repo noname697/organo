@@ -8,8 +8,9 @@ const Funcao = (props) => {
       style={{ backgroundColor: props.corSecundaria }}
     >
       <h3 style={{ borderColor: props.corPrimaria }}>{props.nome}</h3>
-      <Agente />
-      <Agente />
+      <div className="agentes">
+      {props.agentes.map(agente => <Agente key={agente.nome} nome={agente.nome} funcao={agente.funcao} imagem={agente.imagem}/>)}
+      </div>
     </section>
   );
 };

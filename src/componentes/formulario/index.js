@@ -8,7 +8,7 @@ const Formulario = (props) => {
   const [nome, setNome] = useState("");
   const [genero, setGenero] = useState("");
   const [imagem, setImagem] = useState("");
-  const [funcao, setFuncao] = useState("");
+  const [funcao, setFuncao] = useState("Duelista");
 
   const aoSalvar = (e) => {
     e.preventDefault();

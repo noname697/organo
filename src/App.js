@@ -47,6 +47,7 @@ function App() {
           nome={funcao.nome}
           corPrimaria={funcao.corPrimaria}
           corSecundaria={funcao.corSecundaria}
+          agentes={agentes.filter(colaborador => colaborador.funcao === funcao.nome)}
         />
       ))}
     </div>
