@@ -18,6 +18,10 @@ const Formulario = (props) => {
       imagem: imagem,
       funcao: funcao,
     });
+    setNome("");
+    setGenero("");
+    setImagem("");
+    setFuncao("");
   };
 
   return (
