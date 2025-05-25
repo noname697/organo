@@ -31,6 +31,7 @@ function App() {
   const [agentes, setAgentes] = useState([]);
 
   const aoNovoAgenteAdicionado = (agente) => {
+    debugger
     console.log(agente);
     setAgentes([...agentes, agente]);
   };
