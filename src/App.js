@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Banner from "./componentes/Banner";
-import Formulario from "./componentes/FormularioX";
+import Formulario from "./componentes/Formulario";
 import Funcao from "./componentes/Funcao";
 import Footer from "./componentes/Footer";
 
