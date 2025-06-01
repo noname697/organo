@@ -5,7 +5,7 @@ import Funcao from "./componentes/Funcao";
 import Footer from "./componentes/Footer";
 
 function App() {
-  const funcoes = [
+  const [funcoes, setFuncoes] = useState([
     {
       nome: "Duelista",
       corPrimaria: "#F54D41",
@@ -26,7 +26,7 @@ function App() {
       corPrimaria: "#6CA907",
       corSecundaria: "#B6F25C",
     },
-  ];
+  ]);
 
   const [agentes, setAgentes] = useState([]);
 
@@ -38,6 +38,17 @@ function App() {
     console.log("Deletar agente");
   };
 
+  const mudarCorDaFuncao = (cor, nome) => {
+    setFuncoes(
+      funcoes.map((funcao) => {
+        if (funcao.nome === nome) {
+          funcao.corPrimaria = cor;
+        }
+        return funcao;
+      })
+    );
+  };
+
   return (
     <div className="App">
       <Banner />
@@ -47,6 +58,7 @@ function App() {
       />
       {funcoes.map((funcao) => (
         <Funcao
+          mudarCor={mudarCorDaFuncao}
           key={funcao.nome}
           nome={funcao.nome}
           corPrimaria={funcao.corPrimaria}
