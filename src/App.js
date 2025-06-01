@@ -31,8 +31,11 @@ function App() {
   const [agentes, setAgentes] = useState([]);
 
   const aoNovoAgenteAdicionado = (agente) => {
-    console.log(agente);
     setAgentes([...agentes, agente]);
+  };
+
+  const deletarAgente = () => {
+    console.log("Deletar agente");
   };
 
   return (
@@ -51,6 +54,7 @@ function App() {
           agentes={agentes.filter(
             (colaborador) => colaborador.funcao === funcao.nome
           )}
+          aoDeletar={deletarAgente}
         />
       ))}
       <Footer />
