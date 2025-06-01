@@ -8,23 +8,19 @@ function App() {
   const [funcoes, setFuncoes] = useState([
     {
       nome: "Duelista",
-      corPrimaria: "#F54D41",
-      corSecundaria: "#F7948D",
+      cor: "#F7948D",
     },
     {
       nome: "Iniciador",
-      corPrimaria: "#F2D43D",
-      corSecundaria: "#F2EEB6",
+      cor: "#F2EEB6",
     },
     {
       nome: "Controlador",
-      corPrimaria: "#3D9DD9",
-      corSecundaria: "#BBE8F2",
+      cor: "#BBE8F2",
     },
     {
       nome: "Sentinela",
-      corPrimaria: "#6CA907",
-      corSecundaria: "#B6F25C",
+      cor: "#B6F25C",
     },
   ]);
 
@@ -42,7 +38,7 @@ function App() {
     setFuncoes(
       funcoes.map((funcao) => {
         if (funcao.nome === nome) {
-          funcao.corPrimaria = cor;
+          funcao.cor = cor;
         }
         return funcao;
       })
@@ -62,7 +58,7 @@ function App() {
           key={funcao.nome}
           nome={funcao.nome}
           corPrimaria={funcao.corPrimaria}
-          corSecundaria={funcao.corSecundaria}
+          cor={funcao.cor}
           agentes={agentes.filter(
             (colaborador) => colaborador.funcao === funcao.nome
           )}

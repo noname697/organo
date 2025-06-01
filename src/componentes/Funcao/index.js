@@ -1,19 +1,20 @@
 import Agente from "../Agente";
 import "./Funcao.css";
+import hexToRgba from 'hex-to-rgba';
 
 const Funcao = ({
   nome,
   corPrimaria,
-  corSecundaria,
+  cor,
   agentes,
   aoDeletar,
   mudarCor,
 }) => {
   return agentes.length > 0 ? (
-    <section className="funcao" style={{ backgroundColor: corSecundaria }}>
+    <section className="funcao" style={{ backgroundColor: hexToRgba(cor, 0.6) }}>
       <input
         onChange={(e) => mudarCor(e.target.value, nome)}
-        value={corSecundaria}
+        value={cor}
         type="color"
         className="input-cor"
       />
@@ -22,7 +23,7 @@ const Funcao = ({
         {agentes.map((agente) => {
           return (
             <Agente
-              corDeFundo={corPrimaria}
+              corDeFundo={cor}
               key={agente.nome}
               nome={agente.nome}
               funcao={agente.funcao}
