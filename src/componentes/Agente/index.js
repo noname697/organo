@@ -1,9 +1,10 @@
 import "./Agente.css"
+import { AiFillCloseCircle } from "react-icons/ai";
 
 const Agente = ({nome, imagem, funcao, corDeFundo, aoDeletar}) => {
     return (
         <div className="agente">
-            <div className="deletar" onClick={aoDeletar}>Deletar</div>
+            <AiFillCloseCircle className="deletar" onClick={aoDeletar}/>
             <div className="cabecalho" style={{backgroundColor: corDeFundo}}>
                 <img src={imagem} alt="Arthur Manenti"/>
             </div>
