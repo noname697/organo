@@ -25,6 +25,7 @@ const Funcao = ({
           return (
             <Agente
               corDeFundo={cor}
+              agente={agente}
               key={agente.nome}
               nome={agente.nome}
               funcao={agente.funcao}

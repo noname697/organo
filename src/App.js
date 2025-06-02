@@ -178,9 +178,9 @@ function App() {
     setAgentes([...agentes, agente]);
   };
 
-  const deletarAgente = () => {
-    console.log("Deletar agente");
-  };
+  const deletarAgente = (id) => {
+    setAgentes(agentes.filter((agente) => agente.id !== id));
+  }
 
   const mudarCorDaFuncao = (cor, id) => {
     setFuncoes(
