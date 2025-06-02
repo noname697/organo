@@ -10,6 +10,8 @@ const Formulario = (props) => {
   const [genero, setGenero] = useState("");
   const [imagem, setImagem] = useState("");
   const [funcao, setFuncao] = useState("");
+  const [nomeFuncao, setNomeFuncao] = useState("");
+  const [corFuncao, setCorFuncao] = useState("");
 
   const aoSalvar = (e) => {
     e.preventDefault();
@@ -59,6 +61,29 @@ const Formulario = (props) => {
           aoAlterado={(valor) => setFuncao(valor)}
         />
         <Botao>Criar Card</Botao>
+      </form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          props.cadastrarFuncao({nome: nomeFuncao, cor: corFuncao});
+        }}
+      >
+        <h2>Preencha os dados para criar uma nova função.</h2>
+        <CampoTexto
+          obrigatorio
+          label="Nome"
+          placeholder="Digite o nome da função"
+          valor={nomeFuncao}
+          aoAlterado={(valor) => setNomeFuncao(valor)}
+        />
+        <CampoTexto
+          obrigatorio={true}
+          label="Cor"
+          placeholder="Digite a cor da função"
+          valor={corFuncao}
+          aoAlterado={(valor) => setCorFuncao(valor)}
+        />
+        <Botao>Criar uma nova função</Botao>
       </form>
     </section>
   );

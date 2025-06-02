@@ -180,7 +180,7 @@ function App() {
 
   const deletarAgente = (id) => {
     setAgentes(agentes.filter((agente) => agente.id !== id));
-  }
+  };
 
   const mudarCorDaFuncao = (cor, id) => {
     setFuncoes(
@@ -193,10 +193,15 @@ function App() {
     );
   };
 
+  const cadastrarFuncao = (novaFuncao) => {
+    setFuncoes([...funcoes, { ...novaFuncao, id: uuidv4() }]);
+  };
+
   return (
     <div className="App">
       <Banner />
       <Formulario
+        cadastrarFuncao={cadastrarFuncao}
         funcoes={funcoes.map((funcao) => funcao.nome)}
         aoAgenteCadastrado={(agente) => aoNovoAgenteAdicionado(agente)}
       />
