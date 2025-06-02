@@ -3,6 +3,7 @@ import "./Funcao.css";
 import hexToRgba from 'hex-to-rgba';
 
 const Funcao = ({
+  id,
   nome,
   corPrimaria,
   cor,
@@ -13,7 +14,7 @@ const Funcao = ({
   return agentes.length > 0 ? (
     <section className="funcao" style={{ backgroundColor: hexToRgba(cor, 0.6) }}>
       <input
-        onChange={(e) => mudarCor(e.target.value, nome)}
+        onChange={(e) => mudarCor(e.target.value, id)}
         value={cor}
         type="color"
         className="input-cor"

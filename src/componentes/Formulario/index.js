@@ -3,6 +3,7 @@ import Botao from "../Botao";
 import CampoTexto from "../CampoTexto";
 import ListaSuspensa from "../ListaSuspensa";
 import "./Formulario.css";
+import { v4 as uuidv4 } from "uuid";
 
 const Formulario = (props) => {
   const [nome, setNome] = useState("");
@@ -13,6 +14,7 @@ const Formulario = (props) => {
   const aoSalvar = (e) => {
     e.preventDefault();
     props.aoAgenteCadastrado({
+      id: uuidv4(),
       nome: nome,
       genero: genero,
       imagem: imagem,
