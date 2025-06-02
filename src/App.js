@@ -29,7 +29,150 @@ function App() {
     },
   ]);
 
-  const [agentes, setAgentes] = useState([]);
+  const agentesIniciais = [
+    {
+      id: uuidv4(),
+      nome: "Lucas",
+      genero: "Masculino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Duelista",
+    },
+    {
+      id: uuidv4(),
+      nome: "Marina",
+      genero: "Feminino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Iniciador",
+    },
+    {
+      id: uuidv4(),
+      nome: "Rafaela",
+      genero: "Feminino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Controlador",
+    },
+    {
+      id: uuidv4(),
+      nome: "João",
+      genero: "Masculino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Sentinela",
+    },
+    {
+      id: uuidv4(),
+      nome: "Isabela",
+      genero: "Feminino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Duelista",
+    },
+    {
+      id: uuidv4(),
+      nome: "Fernando",
+      genero: "Masculino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Iniciador",
+    },
+    {
+      id: uuidv4(),
+      nome: "Bianca",
+      genero: "Feminino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Controlador",
+    },
+    {
+      id: uuidv4(),
+      nome: "Carlos",
+      genero: "Masculino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Duelista",
+    },
+    {
+      id: uuidv4(),
+      nome: "Juliana",
+      genero: "Feminino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Sentinela",
+    },
+    {
+      id: uuidv4(),
+      nome: "André",
+      genero: "Masculino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Controlador",
+    },
+    {
+      id: uuidv4(),
+      nome: "Camila",
+      genero: "Feminino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Iniciador",
+    },
+    {
+      id: uuidv4(),
+      nome: "Pedro",
+      genero: "Masculino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Duelista",
+    },
+    {
+      id: uuidv4(),
+      nome: "Fernanda",
+      genero: "Feminino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Sentinela",
+    },
+    {
+      id: uuidv4(),
+      nome: "Thiago",
+      genero: "Masculino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Iniciador",
+    },
+    {
+      id: uuidv4(),
+      nome: "Patrícia",
+      genero: "Feminino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Controlador",
+    },
+    {
+      id: uuidv4(),
+      nome: "Eduardo",
+      genero: "Masculino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Sentinela",
+    },
+    {
+      id: uuidv4(),
+      nome: "Larissa",
+      genero: "Feminino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Duelista",
+    },
+    {
+      id: uuidv4(),
+      nome: "Bruno",
+      genero: "Masculino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Controlador",
+    },
+    {
+      id: uuidv4(),
+      nome: "Vanessa",
+      genero: "Feminino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Iniciador",
+    },
+    {
+      id: uuidv4(),
+      nome: "Ricardo",
+      genero: "Masculino",
+      imagem: "https://github.com/noname697.png",
+      funcao: "Duelista",
+    },
+  ];
+
+  const [agentes, setAgentes] = useState(agentesIniciais);
 
   const aoNovoAgenteAdicionado = (agente) => {
     setAgentes([...agentes, agente]);
