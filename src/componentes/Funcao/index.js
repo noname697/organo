@@ -1,6 +1,6 @@
 import Agente from "../Agente";
 import "./Funcao.css";
-import hexToRgba from 'hex-to-rgba';
+import hexToRgba from "hex-to-rgba";
 
 const Funcao = ({
   id,
@@ -10,9 +10,13 @@ const Funcao = ({
   agentes,
   aoDeletar,
   mudarCor,
+  aoFavoritar,
 }) => {
   return agentes.length > 0 ? (
-    <section className="funcao" style={{ backgroundColor: hexToRgba(cor, 0.6) }}>
+    <section
+      className="funcao"
+      style={{ backgroundColor: hexToRgba(cor, 0.6) }}
+    >
       <input
         onChange={(e) => mudarCor(e.target.value, id)}
         value={cor}
@@ -26,11 +30,8 @@ const Funcao = ({
             <Agente
               corDeFundo={cor}
               agente={agente}
-              key={agente.nome}
-              nome={agente.nome}
-              funcao={agente.funcao}
-              imagem={agente.imagem}
               aoDeletar={aoDeletar}
+              aoFavoritar={aoFavoritar}
             />
           );
         })}

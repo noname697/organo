@@ -32,6 +32,7 @@ function App() {
   const agentesIniciais = [
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Lucas",
       genero: "Masculino",
       imagem: "https://github.com/noname697.png",
@@ -39,6 +40,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Marina",
       genero: "Feminino",
       imagem: "https://github.com/noname697.png",
@@ -46,6 +48,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Rafaela",
       genero: "Feminino",
       imagem: "https://github.com/noname697.png",
@@ -53,6 +56,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "João",
       genero: "Masculino",
       imagem: "https://github.com/noname697.png",
@@ -60,6 +64,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Isabela",
       genero: "Feminino",
       imagem: "https://github.com/noname697.png",
@@ -67,6 +72,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Fernando",
       genero: "Masculino",
       imagem: "https://github.com/noname697.png",
@@ -74,6 +80,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Bianca",
       genero: "Feminino",
       imagem: "https://github.com/noname697.png",
@@ -81,6 +88,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Carlos",
       genero: "Masculino",
       imagem: "https://github.com/noname697.png",
@@ -88,6 +96,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Juliana",
       genero: "Feminino",
       imagem: "https://github.com/noname697.png",
@@ -95,6 +104,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "André",
       genero: "Masculino",
       imagem: "https://github.com/noname697.png",
@@ -102,6 +112,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Camila",
       genero: "Feminino",
       imagem: "https://github.com/noname697.png",
@@ -109,6 +120,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Pedro",
       genero: "Masculino",
       imagem: "https://github.com/noname697.png",
@@ -116,6 +128,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Fernanda",
       genero: "Feminino",
       imagem: "https://github.com/noname697.png",
@@ -123,6 +136,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Thiago",
       genero: "Masculino",
       imagem: "https://github.com/noname697.png",
@@ -130,6 +144,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Patrícia",
       genero: "Feminino",
       imagem: "https://github.com/noname697.png",
@@ -137,6 +152,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Eduardo",
       genero: "Masculino",
       imagem: "https://github.com/noname697.png",
@@ -144,6 +160,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Larissa",
       genero: "Feminino",
       imagem: "https://github.com/noname697.png",
@@ -151,6 +168,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Bruno",
       genero: "Masculino",
       imagem: "https://github.com/noname697.png",
@@ -158,6 +176,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Vanessa",
       genero: "Feminino",
       imagem: "https://github.com/noname697.png",
@@ -165,6 +184,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "Ricardo",
       genero: "Masculino",
       imagem: "https://github.com/noname697.png",
@@ -197,6 +217,15 @@ function App() {
     setFuncoes([...funcoes, { ...novaFuncao, id: uuidv4() }]);
   };
 
+  const resolverFavorito = (id) => {
+    setAgentes(
+      agentes.map((agente) => {
+        if (agente.id === id) agente.favorito = !agente.favorito;
+        return agente;
+      })
+    );
+  };
+
   return (
     <div className="App">
       <Banner />
@@ -213,10 +242,9 @@ function App() {
           nome={funcao.nome}
           corPrimaria={funcao.corPrimaria}
           cor={funcao.cor}
-          agentes={agentes.filter(
-            (colaborador) => colaborador.funcao === funcao.nome
-          )}
+          agentes={agentes.filter((agente) => agente.funcao === funcao.nome)}
           aoDeletar={deletarAgente}
+          aoFavoritar={resolverFavorito}
         />
       ))}
       <Footer />
