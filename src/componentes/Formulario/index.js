@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Botao from "../Botao";
-import CampoTexto from "../CampoTexto";
+import Campo from "../Campo";
 import ListaSuspensa from "../ListaSuspensa";
 import "./Formulario.css";
 import { v4 as uuidv4 } from "uuid";
@@ -32,21 +32,21 @@ const Formulario = (props) => {
     <section className="formulario">
       <form onSubmit={aoSalvar}>
         <h2>Preencha os dados para criar o card do Agente.</h2>
-        <CampoTexto
+        <Campo
           obrigatorio={true}
           label="Nome"
           placeholder="Digite seu nome"
           valor={nome}
           aoAlterado={(valor) => setNome(valor)}
         />
-        <CampoTexto
+        <Campo
           obrigatorio={true}
           label="Genêro"
           placeholder="Digite seu genêro"
           valor={genero}
           aoAlterado={(valor) => setGenero(valor)}
         />
-        <CampoTexto
+        <Campo
           obrigatorio={false}
           label="Imagem"
           placeholder="Digite o endereço da imagem"
@@ -65,19 +65,21 @@ const Formulario = (props) => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          props.cadastrarFuncao({nome: nomeFuncao, cor: corFuncao});
+          props.cadastrarFuncao({ nome: nomeFuncao, cor: corFuncao });
+          setNomeFuncao("");
         }}
       >
         <h2>Preencha os dados para criar uma nova função.</h2>
-        <CampoTexto
+        <Campo
           obrigatorio
           label="Nome"
           placeholder="Digite o nome da função"
           valor={nomeFuncao}
           aoAlterado={(valor) => setNomeFuncao(valor)}
         />
-        <CampoTexto
-          obrigatorio={true}
+        <Campo
+          obrigatorio
+          type="color"
           label="Cor"
           placeholder="Digite a cor da função"
           valor={corFuncao}
