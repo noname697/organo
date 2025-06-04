@@ -28,6 +28,7 @@ const Funcao = ({
         {agentes.map((agente) => {
           return (
             <Agente
+              key={agente.nome}
               corDeFundo={cor}
               agente={agente}
               aoDeletar={aoDeletar}

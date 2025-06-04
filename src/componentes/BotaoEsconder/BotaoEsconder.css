@@ -1,0 +1,14 @@
+.botao-esconder-container{
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.botao-esconder {
+    border-radius: 50px;
+    padding: 22px;
+    background-color: #fd4556;
+    margin-right: 50px;
+}

@@ -3,6 +3,7 @@ import Banner from "./componentes/Banner";
 import Formulario from "./componentes/Formulario";
 import Funcao from "./componentes/Funcao";
 import Footer from "./componentes/Footer";
+import BotaoEsconder from "./componentes/BotaoEsconder";
 import { v4 as uuidv4 } from "uuid";
 
 function App() {
@@ -226,14 +227,24 @@ function App() {
     );
   };
 
+  const [formularioVisivel, setFormularioVisivel] = useState(true);
+
+  const esconderFormulario = () => {
+setFormularioVisivel(!formularioVisivel)
+  }
+
   return (
     <div className="App">
       <Banner />
+      {formularioVisivel ? (
       <Formulario
         cadastrarFuncao={cadastrarFuncao}
         funcoes={funcoes.map((funcao) => funcao.nome)}
         aoAgenteCadastrado={(agente) => aoNovoAgenteAdicionado(agente)}
       />
+      ): ''}
+
+      <BotaoEsconder esconderFormulario={esconderFormulario}/>
       {funcoes.map((funcao) => (
         <Funcao
           id={funcao.id}
