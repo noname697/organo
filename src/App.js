@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import Banner from "./componentes/Banner";
 import Formulario from "./componentes/Formulario";
 import Funcao from "./componentes/Funcao";
 import Footer from "./componentes/Footer";
 import BotaoEsconder from "./componentes/BotaoEsconder";
 import { v4 as uuidv4 } from "uuid";
+import reducer from "./reducer";
 
 function App() {
   const [funcoes, setFuncoes] = useState([
@@ -29,29 +30,39 @@ function App() {
       cor: "#B6F25C",
     },
   ]);
-  
-  const [agentes, setAgentes] = useState([]);
+
+  const [agentes, dispatch] = useReducer(reducer, []);
+
   useEffect(() => {
-    fetch('http://localhost:8080/agentes')
+    fetch("http://localhost:8080/agentes")
       .then((resposta) => resposta.json())
       .then((dados) => {
-        setAgentes(dados);
-      })
-  }, []) 
+        dispatch({
+          tipo: "CARREGAR_AGENTES",
+          agentes: dados,
+        });
+      });
+  }, []);
 
   const aoNovoAgenteAdicionado = (agente) => {
-    setAgentes([...agentes, agente]);
+    dispatch({
+      tipo: "ADICIONAR_AGENTE",
+      agente: agente,
+    });
   };
 
   const deletarAgente = (id) => {
-    setAgentes(agentes.filter((agente) => agente.id !== id));
+    dispatch({
+      tipo: "DELETAR_AGENTE",
+      id: id,
+    });
   };
 
   const mudarCorDaFuncao = (cor, id) => {
     setFuncoes(
       funcoes.map((funcao) => {
         if (funcao.id === id) {
-          funcao.cor = cor;
+          return { ...funcao, cor };
         }
         return funcao;
       })
@@ -63,32 +74,31 @@ function App() {
   };
 
   const resolverFavorito = (id) => {
-    setAgentes(
-      agentes.map((agente) => {
-        if (agente.id === id) agente.favorito = !agente.favorito;
-        return agente;
-      })
-    );
+    dispatch({
+      tipo: "RESOLVER_FAVORITO",
+      id: id,
+    });
   };
 
   const [formularioVisivel, setFormularioVisivel] = useState(true);
 
   const esconderFormulario = () => {
-setFormularioVisivel(!formularioVisivel)
-  }
+    setFormularioVisivel(!formularioVisivel);
+  };
 
   return (
     <div className="App">
       <Banner />
-      {formularioVisivel ? (
-      <Formulario
-        cadastrarFuncao={cadastrarFuncao}
-        funcoes={funcoes.map((funcao) => funcao.nome)}
-        aoAgenteCadastrado={(agente) => aoNovoAgenteAdicionado(agente)}
-      />
-      ): ''}
+      {formularioVisivel && (
+        <Formulario
+          cadastrarFuncao={cadastrarFuncao}
+          funcoes={funcoes.map((funcao) => funcao.nome)}
+          aoAgenteCadastrado={aoNovoAgenteAdicionado}
+        />
+      )}
 
-      <BotaoEsconder esconderFormulario={esconderFormulario}/>
+      <BotaoEsconder esconderFormulario={esconderFormulario} />
+
       {funcoes.map((funcao) => (
         <Funcao
           id={funcao.id}
@@ -102,6 +112,7 @@ setFormularioVisivel(!formularioVisivel)
           aoFavoritar={resolverFavorito}
         />
       ))}
+
       <Footer />
     </div>
   );
